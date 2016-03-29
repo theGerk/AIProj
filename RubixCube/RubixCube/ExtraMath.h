@@ -1,15 +1,17 @@
-#pragma once
-
+#ifndef __ExtraMath__
+#define __ExtraMath__
 
 namespace ExtraMath
 {
-	///untested - Benji, does not throw errors
-	///Benji: O(exponent)
+	///Tested - Benji, does not throw errors
+	///Benji: O(log(exponent))
 	//optimized power function, takes in 2 positive integers and allways returns an integer
 	unsigned int uintPow(unsigned int base, unsigned int exponent);
 
 
-	///incomplete
+	///Not started
 	//gets the n'th digit in any base
 	inline unsigned int getDigitInBase(unsigned int number, unsigned int base, unsigned int digit);
 }
+
+#endif

@@ -3,12 +3,12 @@ namespace ExtraMath
 {
 	unsigned int uintPow(unsigned int base, unsigned int exponent)
 	{
-		unsigned int output;
+		unsigned int output = 1;
 		
 		for (unsigned int i = 1; i <= exponent; i <<= 1)
 		{
 			if (i & exponent)
-				output += base;
+				output *= base;
 			base *= base;
 		}
 

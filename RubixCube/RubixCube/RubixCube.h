@@ -1,5 +1,8 @@
-#pragma once
+#ifndef __RubixCube__
+#define __RubixCube__
 #include "ExtraMath.h"
+#include <cstdlib>
+
 class RubixCube
 {
 private:
@@ -29,6 +32,11 @@ public:
 		unsigned int pDimension2);		//second dimension to use to define plane we are turning upon, switching 1 and 2 results in turn in opposite direction
 
 
+	///Not started
+	//mixes up cube sufficently
+	void randomize();
+
+
 	//trivial accessors
 	unsigned int getDimensions();				//returns _dimensions
 	unsigned int getLength();					//returns _length
@@ -36,3 +44,5 @@ public:
 	unsigned int getCubeLength();				//returns _cubeLength
 
 };
+
+#endif

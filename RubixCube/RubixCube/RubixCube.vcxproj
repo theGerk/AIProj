@@ -120,7 +120,7 @@
   <ItemGroup>
     <ClInclude Include="ExtraMath.h" />
     <ClInclude Include="RubixCube.h" />
-    <ClInclude Include="tests.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ExtraMath.cpp" />
