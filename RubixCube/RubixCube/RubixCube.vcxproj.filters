@@ -18,11 +18,14 @@
     <ClInclude Include="RubixCube.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ExtraMath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="test.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrLen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extra.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -32,7 +35,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ExtraMath.cpp">
+    <ClCompile Include="ArrLen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="extra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ExtraMath.h"
+#include "extra.h"
 #include "RubixCube.h"
 
 #include "test.h"

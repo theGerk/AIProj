@@ -3,7 +3,7 @@
 RubixCube::RubixCube(unsigned int dimensions, unsigned int length) :
 	_dimensions(dimensions),
 	_length(length),
-	_cubeLength(ExtraMath::uintPow(length, dimensions))
+	_cubeLength(extra::math::uintPow(length, dimensions))
 {
 	_cube = new unsigned int[_cubeLength];
 	//dont need to go through inside of cube, will skip over it when able
@@ -15,6 +15,7 @@ RubixCube::~RubixCube()
 {
 	delete[] _cube;
 }
+
 
 unsigned int RubixCube::getDimensions()
 {

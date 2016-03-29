@@ -1,7 +1,8 @@
 #ifndef __RubixCube__
 #define __RubixCube__
-#include "ExtraMath.h"
+#include "extra.h"
 #include <cstdlib>
+#include "ArrLen.h"
 
 class RubixCube
 {
@@ -12,9 +13,16 @@ private:
 	unsigned int* _cube;			//flat array containing data about entire cube
 	const unsigned int _cubeLength;	//length of cube, allways equivelent to _length ^ _dimensions
 
+
+	///Not started
+	//gets all (important) points in the cube in the sub cube
+	//used to get cube to rotate when doing movement
+	//this is highly likely to change
+	ArrLen<ArrLen<unsigned int>> getSubCube(unsigned int dimension, unsigned int depth);
+
 public:
 	///Untested - Benji O(length^dimensions)
-	///Benji: O(length^(dimensions - 1) * dimensions)
+	///Benji: O(MIN(length^(dimensions - 1) * dimensions), length^dimensions)
 	//makes cube with specified paramaters
 	//dimensions must be greater then or equal to 3
 	//length must be greater then or equal to 1
