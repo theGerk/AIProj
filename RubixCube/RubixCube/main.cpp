@@ -1,12 +1,9 @@
-#include <iostream>
-#include "extra.h"
+#include "ExtraMath.h"
 #include "RubixCube.h"
 
-#include "test.h"
+#include "tests.h"
 
 int main()
 {
-	std::cout << testingStuff::testAll();
-
-	return 0;
+	test::testAll(std::cout);
 }

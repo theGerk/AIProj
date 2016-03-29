@@ -121,7 +121,7 @@
     <ClInclude Include="ArrLen.h" />
     <ClInclude Include="extra.h" />
     <ClInclude Include="RubixCube.h" />
-    <ClInclude Include="test.h" />
+    <ClInclude Include="tests.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrLen.cpp" />
