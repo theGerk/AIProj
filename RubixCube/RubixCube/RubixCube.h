@@ -2,7 +2,6 @@
 #define __RubixCube__
 #include "extra.h"
 #include <cstdlib>
-#include "ArrLen.h"
 
 class RubixCube
 {
@@ -17,16 +16,20 @@ private:
 	///Untested - Benji O(1)
 	//rotates a set of 4 points 
 	//d1 and d2 are passed in longer form
-	inline void rotatePoint(unsigned int d1, unsigned int d2, unsigned int point)
+	inline void rotatePoint(unsigned int d1, unsigned int d2,
+		unsigned int d1Value,
+		unsigned int d2Value,
+		unsigned int c,						//length side - 1 - d1Value
+		unsigned int strippedPoint,
+		unsigned int point)
 	{
+#define a d1Value
+#define b d2Value
+#define s strippedPoint
 		unsigned int t = _cube[point];
 
 		//test this code
 		//first
-		unsigned int a = point / d1 % _length;
-		unsigned int b = point / d2 % _length;
-		unsigned int c = _length - 1 - a;
-		unsigned int s = point - a * d1 - b * d2;
 		unsigned int n = s + a * d2 + c * d1;
 		_cube[point] = _cube[n];
 
@@ -48,6 +51,9 @@ private:
 
 		//fourth
 		_cube[n] = t;
+#undef a
+#undef b
+#undef s
 	}
 
 
@@ -69,7 +75,7 @@ public:
 	///Untested - Benji O(1)
 	~RubixCube();
 
-	///in progress
+	///Untested - Benji O(_length ^ (_dimensions - 3)) ?
 	//movement function which prefomes a standard movement for a rubix cube
 	void movement(
 		unsigned int rotationDimension,	//the dimension in which we are removing in order to make a cube of order n-1 to turn
@@ -78,7 +84,7 @@ public:
 		unsigned int pDimension2);		//second dimension to use to define plane we are turning upon, switching 1 and 2 results in turn in opposite direction
 
 
-	///Untested - Benji O(_length ^ _dimensions)
+	///Untested - Benji O(_length ^ _dimensions * movement)
 	//mixes up cube sufficently
 	void randomize();
 

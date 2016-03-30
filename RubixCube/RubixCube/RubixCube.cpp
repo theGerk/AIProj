@@ -105,26 +105,46 @@ void RubixCube::movement(unsigned int rotationDimension, unsigned int depth, uns
 
 	//go through all values holding r, p1, and p2														(loop 1)
 	//go through 1/4 values on plane with nested loops p1:[0, _length / 2), p2:[p1, _length - 1 - p2)	(loop 2)
-
-
-	unsigned int loop1Max = _cubeLength / _length / _length / _length;
-	unsigned int loop2Max = _length / 2;
-	unsigned int loop3temp = _length - 1;
-	for (unsigned int i = 0; i < loop1Max; i++)
+	
+	
 	{
-		//convert into extended value
-		unsigned int extendedI = i;
-		for (unsigned int j = 0; j < loop2Max; j++)
-		{
-			unsigned int loop3Max = loop3temp - j;
-			for (unsigned int k = j; k < loop3Max; k++)
-			{
+#define m1 _length
+		unsigned int m2 = m1 * _length;
+		unsigned int m3 = m2 * _length;
 
+#define A a
+		unsigned int B = b / m1;
+		unsigned int C = c / m2;
+
+		unsigned int loop1Max = _cubeLength / m3;
+		unsigned int loop2Max = _length / 2;
+		unsigned int loop3temp = _length - 1;
+
+		for (unsigned int i = 0; i < loop1Max; i++)
+		{
+			//i % A + (i - i % A) % B * m + (i - i % B) % C * m^2 + (i - i % C) * m^3
+
+			unsigned int extendedI = i % A;	//gets last segment of number
+
+			//full equation
+			extendedI += (i - extendedI) % B * m1 + (i - i % B) % C * m2 + (i - i % C) * m3 + rotationDimension * depth;
+
+
+			for (unsigned int j = 0; j < loop2Max; j++)
+			{
+				unsigned int includeJ = extendedI + j * pDimension1;
+				unsigned int c = _length - 1 - j;
+
+				unsigned int loop3Max = loop3temp - j;
+				for (unsigned int k = j; k < loop3Max; k++)
+				{
+					rotatePoint(pDimension1, pDimension2, j, k, c, extendedI, includeJ + k * pDimension2);
+				}
 			}
 		}
-
+#undef A
+#undef m1
 	}
-
 }
 
 

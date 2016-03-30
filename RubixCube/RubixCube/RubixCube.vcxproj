@@ -118,13 +118,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ArrLen.h" />
     <ClInclude Include="extra.h" />
     <ClInclude Include="RubixCube.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrLen.cpp" />
     <ClCompile Include="extra.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RubixCube.cpp" />

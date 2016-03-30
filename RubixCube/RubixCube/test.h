@@ -34,7 +34,6 @@ namespace testingStuff
 		}
 	}
 #endif
-
 	bool testAll()
 	{
 		return
