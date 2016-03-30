@@ -14,11 +14,10 @@ private:
 	const unsigned int _cubeLength;	//length of cube, allways equivelent to _length ^ _dimensions
 
 
-	///Not started
-	//gets all (important) points in the cube in the sub cube
-	//used to get cube to rotate when doing movement
-	//this is highly likely to change
-	ArrLen<ArrLen<unsigned int>> getSubCube(unsigned int dimension, unsigned int depth);
+	///Untested - Benji O(1)
+	//rotates a set of 4 points 
+	//d1 and d2 are passed in longer form
+	void rotatePoint(unsigned int d1, unsigned int d2, unsigned int point);
 
 public:
 	///Untested - Benji O(length^dimensions)

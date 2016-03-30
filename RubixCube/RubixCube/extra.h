@@ -21,10 +21,13 @@ namespace extra
 	namespace standard
 	{
 
-		///Not started
+		///Tested - Benji
 		//currently assumes max <= RAND_MAX, may want to leave this way for speed
 		//returns random integer in the range [0, max)
-		inline unsigned int random(unsigned int max);
+		inline unsigned int random(unsigned int max)
+		{
+			return rand() % max;
+		}
 	}
 
 }

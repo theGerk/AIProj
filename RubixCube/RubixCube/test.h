@@ -21,7 +21,7 @@ namespace testingStuff
 			bool random()
 			{
 				size_t i, j;
-				for (i = 0; i < RAND_MAX; i += i % 61)
+				for (i = 1; i < RAND_MAX; i += i % 61)
 				{
 					for (j = 0; j < i; j++)
 						if (extra::standard::random(i) >= i)
@@ -29,7 +29,7 @@ namespace testingStuff
 					if (j < i)
 						break;
 				}
-				return i < RAND_MAX;
+				return i >= RAND_MAX;
 			}
 		}
 	}

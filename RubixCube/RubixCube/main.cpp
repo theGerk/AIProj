@@ -6,6 +6,7 @@
 
 int main()
 {
+
 	std::cout << testingStuff::testAll();
 
 	return 0;
