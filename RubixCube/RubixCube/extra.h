@@ -9,12 +9,19 @@ namespace extra
 		///Tested - Benji, does not throw errors
 		///Benji: O(log(exponent))
 		//optimized power function, takes in 2 positive integers and allways returns an integer
-		unsigned int uintPow(unsigned int base, unsigned int exponent);
+		inline unsigned int uintPow(unsigned int base, unsigned int exponent)
+		{
+			unsigned int output = 1;
 
+			for (unsigned int i = 1; i <= exponent; i <<= 1)
+			{
+				if (i & exponent)
+					output *= base;
+				base *= base;
+			}
 
-		///Not started
-		//gets the n'th digit in any base
-		inline unsigned int getDigitInBase(unsigned int number, unsigned int base, unsigned int digit);
+			return output;
+		}
 	}
 
 

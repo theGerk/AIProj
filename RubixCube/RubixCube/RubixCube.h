@@ -17,7 +17,46 @@ private:
 	///Untested - Benji O(1)
 	//rotates a set of 4 points 
 	//d1 and d2 are passed in longer form
-	void rotatePoint(unsigned int d1, unsigned int d2, unsigned int point);
+	inline void rotatePoint(unsigned int d1, unsigned int d2, unsigned int point)
+	{
+		unsigned int t = _cube[point];
+
+		//test this code
+		//first
+		unsigned int a = point / d1 % _length;
+		unsigned int b = point / d2 % _length;
+		unsigned int c = _length - 1 - a;
+		unsigned int s = point - a * d1 - b * d2;
+		unsigned int n = s + a * d2 + c * d1;
+		_cube[point] = _cube[n];
+
+		//second
+		point = n;
+		b = a;
+		a = c;
+		c = _length - 1 - a;
+		n = s + a * d2 + c * d1;
+		_cube[point] = _cube[n];
+
+		//third
+		point = n;
+		b = a;
+		a = c;
+		c = _length - 1 - a;
+		n = s + a * d2 + c * d1;
+		_cube[point] = _cube[n];
+
+		//fourth
+		_cube[n] = t;
+	}
+
+
+	///Untested - Benji O(log(d))
+	//converts dimension to long form
+	inline unsigned int convertToLongForm(unsigned int d)
+	{
+		return extra::math::uintPow(_length, d);
+	}
 
 public:
 	///Untested - Benji O(length^dimensions)
@@ -30,7 +69,7 @@ public:
 	///Untested - Benji O(1)
 	~RubixCube();
 
-	///Not started
+	///in progress
 	//movement function which prefomes a standard movement for a rubix cube
 	void movement(
 		unsigned int rotationDimension,	//the dimension in which we are removing in order to make a cube of order n-1 to turn
@@ -39,7 +78,7 @@ public:
 		unsigned int pDimension2);		//second dimension to use to define plane we are turning upon, switching 1 and 2 results in turn in opposite direction
 
 
-	///Not started
+	///Untested - Benji O(_length ^ _dimensions)
 	//mixes up cube sufficently
 	void randomize();
 

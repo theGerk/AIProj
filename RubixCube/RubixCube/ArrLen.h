@@ -9,7 +9,10 @@ public:
 	T* arr;
 	size_t len;
 
-	T& operator[](size_t i);
+	inline T& operator[](size_t i)
+	{
+		return arr[i];
+	}
 };
 
 #endif
