@@ -119,7 +119,13 @@ void RubixCube::movement(unsigned int rotationDimension, unsigned int depth, uns
 		unsigned int loop1Max = _cubeLength / m3;
 		unsigned int loop2Max = _length / 2;
 		unsigned int loop3temp = _length - 1;
-
+		
+		//----------------------------------//
+		//**********************************//
+		//CAN PARALLELIZE THESE NESTED LOOPS//
+		//**********************************//
+		//----------------------------------//
+		
 		for (unsigned int i = 0; i < loop1Max; i++)
 		{
 			//i % A + (i - i % A) % B * m + (i - i % B) % C * m^2 + (i - i % C) * m^3
@@ -154,7 +160,7 @@ void RubixCube::randomize()
 	unsigned int A = _dimensions;
 	unsigned int B = _dimensions - 1;
 	unsigned int C = _dimensions - 2;
-	for (unsigned int i = 0; i < _cubeLength; i++)
+	for (unsigned int i = extra::standard::random(2); i < _cubeLength; i++)
 	{
 		a = extra::standard::random(A);
 		b = extra::standard::random(B);
@@ -188,6 +194,15 @@ void RubixCube::randomize()
 
 		movement(a, extra::standard::random(_length), b, c);
 	}
+}
+
+void RubixCube::print()
+{
+}
+
+bool RubixCube::solved()
+{
+	return false;
 }
 
 unsigned int RubixCube::getDimensions()
